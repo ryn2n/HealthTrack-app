@@ -3,4 +3,4 @@ def print_error(message):
     print()
     print(message)
     print()
-    print("Go back to Home: ./WeightTrack")
+    print("Go back to Home: ./app")
