@@ -8,9 +8,10 @@ class WeightModel:
     def __init__(self, filename='weight_data.csv'):
         self.filename = filename
     
-    # TODO:
     def save_weight(self, weight, date):
-        print("WM: Saving...")
+        with open(self.filename, 'a') as file:
+            writer = csv.writer(file)
+            writer.writerow([date, weight])
     
     def get_graphing_data(self):
         # Retrieve Data
