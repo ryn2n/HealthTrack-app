@@ -40,12 +40,12 @@ def main():
         return
 
     match args.command:
+        case "home":
+            print(weight_controller.home())
         case "add_weight":
             print(weight_controller.add_weight(args.weight))
         case "graph_weight":
             print(weight_controller.graph_weight(args.limit))
-        case "home":
-            print(weight_controller.home())
         case _:
             parser.print_help()
             return

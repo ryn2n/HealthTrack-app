@@ -5,7 +5,7 @@ import datetime
 # Receives commands and delivers response
 class WeightController:
     def __init__(self):
-        self.service = WeightService
+        self.service = WeightService()
     
     def home(self):
         response = (
@@ -29,7 +29,7 @@ class WeightController:
         return response
     
     def graph_weight(self, limit=30):
-        print(f"Showing trend for all time and past {limit} entries...")
+        print(f"Showing trend for all time and past {limit} entries...\n")
         self.service.graph_weight(limit)
         
         response = (

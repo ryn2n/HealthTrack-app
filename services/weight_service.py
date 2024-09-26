@@ -1,10 +1,11 @@
 from models.weight_model import WeightModel
-from utils.graph import plot_graph
+from utils.graph import plot_graph_weight
 from utils.menus import print_error
 
+# Handles all function, logic check values, asks model for data
 class WeightService:
     def __init__(self):
-        self.model = WeightModel
+        self.model = WeightModel()
     
     # Process and check weight, then save to model
     def add_weight(self, weight, date):
@@ -15,5 +16,4 @@ class WeightService:
     
     def graph_weight(self, limit):
         data = self.model.get_graphing_data()
-        data_limited = data[(-limit):]
-        plot_graph(data, data_limited)
+        plot_graph_weight(data, limit)

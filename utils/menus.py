@@ -1,5 +1,5 @@
 def print_error(message):
-    print("Uh oh!")
+    print("Uh oh! Error found.")
     print()
     print(message)
     print()
