@@ -1,8 +1,7 @@
 # HealthTrack-app
 
+## Project Structure
 ```
-Trying out project structure:
-
 health_tracker/
 │
 ├── app.py                   # Main entry point of the application
@@ -38,8 +37,7 @@ Pandas
 Numpy
 
 ```bash
-pip install pandas
-pip install numpy
+pip install matplotlib.pyplot
 ```
 
 ## How to use and run (EXAMPLE DELETE LATER)
