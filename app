@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
 # Command to init
-# python3 WeightTrack.py "$@"
+python3 App.py "$@"
