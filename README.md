@@ -34,9 +34,11 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install necessa
 
 ### Needed libraries:
 - matplotlib.pyplot
+- numpy
 
 ```bash
 pip install matplotlib.pyplot
+pip install numpy
 ```
 
 ## How to use and run (EXAMPLE DELETE LATER)
