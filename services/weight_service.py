@@ -13,8 +13,7 @@ class WeightService:
     
     def change_filename(self, filename):
         if filename and os.path.exists(filename):
-            self.model.save_filename(filename)
-            return 0 # For success
+            return self.model.save_filename(filename) # return 0 for success, 1 for fail
         else:
             return 1 # For fail, like cpp program exit
     

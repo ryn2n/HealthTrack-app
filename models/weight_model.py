@@ -17,8 +17,10 @@ class WeightModel:
             self.filename = filename
             with open("filename.txt", 'w') as file:
                 file.write(filename)
+            return 0
         else:
             print_error("filename.txt does not exist. Please create this file.")
+            return 1
     
     def save_weight(self, weight, date):
         with open(self.filename, 'a') as file:

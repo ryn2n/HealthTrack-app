@@ -53,3 +53,23 @@ The test program is used to verify that samples.csv has the correct output to fe
 ```bash
 ./test
 ```
+
+## Planned features
+
+### Weight tracker:
+Be able to edit or delete?
+Trendline on graph?
+
+### Calorie tracker, or Nutrition tracker?:
+Add entires to dates
+Edit entries to add foods to them, to increase
+Graph total calories in same way as weight, with all time and number entries
+Trendline on graph
+
+Calorie Entry has
+- Date
+- Total calories
+- List of foods with calorie count for breakdown
+- Protein?
+
+(useful md tool: https://markdownlivepreview.com/)
