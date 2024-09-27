@@ -20,6 +20,9 @@ def main():
 
     # App parsers
     app_parser = subparsers.add_parser("home", help="Back to app home")
+    dir_parser = subparsers.add_parser("dir_weight", help="Shows filename where data is being accessed")
+    dir_parser.add_argument("-c","--change", type=str, nargs='?', help="Change filename where data is being accessed to <filename>")
+    # TODO: Maybe separate view dir and change dir commands? maybe even create dir - adjust to profiles?
     
     # Weight parsers
     add_weight_parser = subparsers.add_parser("add_weight", help="Add a weight entry", exit_on_error=False)
@@ -42,6 +45,8 @@ def main():
     match args.command:
         case "home":
             print(weight_controller.home())
+        case "dir_weight":
+            print(weight_controller.change_dir(args.change))
         case "add_weight":
             print(weight_controller.add_weight(args.weight))
         case "graph_weight":

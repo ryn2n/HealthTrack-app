@@ -17,6 +17,15 @@ class WeightController:
         )
         return response
     
+    def change_dir(self, filename):
+        # Save return code from change
+        did_fail_change = self.service.change_filename(filename)
+        if not did_fail_change:
+            print("File successfully changed.")
+        else:
+            print(f"No file change. Is {filename} a valid filename?")
+        return f"File being accessed set to: {self.service.get_filename()}"
+    
     def add_weight(self, weight):
         current_date = datetime.datetime.today().replace(microsecond=0)
         self.service.add_weight(weight, current_date)
