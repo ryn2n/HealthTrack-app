@@ -5,8 +5,12 @@ from utils.menus import print_error
 
 # Manages all data handling to and from database
 class WeightModel:
-    def __init__(self, filename='weight_data.csv'):
-        self.filename = filename
+    def __init__(self, filename='weight_data_demo.csv'):
+        if os.path.exists("filename.txt"): # retrieve filename for data to load
+            with open("filename.txt", 'r') as file:
+                self.filename = file.read()
+        else:
+            self.filename = filename
     
     def save_weight(self, weight, date):
         with open(self.filename, 'a') as file:
