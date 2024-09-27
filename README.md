@@ -32,9 +32,8 @@ health_tracker/
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install necessary libraries/packages.
 
-Needed libraries:
-Pandas
-Numpy
+### Needed libraries:
+- matplotlib.pyplot
 
 ```bash
 pip install matplotlib.pyplot
