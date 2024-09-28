@@ -7,7 +7,10 @@ from utils.filename import init_filename, save_filename_to_json
 # Manages all data handling to and from database
 class WeightModel:
     def __init__(self):
-        self.filename = init_filename("weight")
+        try:
+            self.filename = init_filename("weight")
+        except NameError as e:
+            print_error(e)
         
     def save_filename(self, filename):
         save_filename_to_json("weight", filename)

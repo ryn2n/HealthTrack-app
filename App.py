@@ -31,8 +31,13 @@ def main():
     graph_weight_parser.add_argument("limit", type=int, nargs='?', default=30, help="Graph all entries, and last <int> entries (default is all)")
 
     # Calorie parsers
-    create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for today's date")
+    create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for a date")
     create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
+    # TODO: Get entry by date to retrieve an entry
+    # TODO: Update entry to update and edit a retrieved entry
+    # TODO: Get all entries for graphing
+    # TODO: Create food to add a food to database
+    # TODO: Show all foods to list all foods to add in database - so CRUD for food?
     # add_calories_parser = subparsers.add_parser("add_calories", help="Add calorie entry")
     # add_calories_parser.add_argument("calories", type=int, help="Calories to add")
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")

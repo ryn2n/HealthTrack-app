@@ -7,10 +7,7 @@ def init_filename(tracker_type):
             data = json.load(file)
             return data[tracker_type] # should be set up as: {string:filename} 
     else:
-        with open("filename.json", 'w') as file:
-            data = {}
-            data[tracker_type] = "weight_data_demo.csv" # default to demo data
-            json.dump(data, file, indent=4)
+        raise NameError("filename.json not found. Please create this file.")
 
 def save_filename_to_json(tracker_type, filename):
     if os.path.exists("filename.json"):
@@ -19,6 +16,6 @@ def save_filename_to_json(tracker_type, filename):
             data = json.load(file)
         with open("filename.json", 'w') as file:
             data[tracker_type] = filename
-            json.dump(data, file, indent=4)
+            json.dump(data, file, indent=4, sort_keys=True)
     else:
         raise NameError("filename.json not found. Please create this file.")
