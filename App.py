@@ -1,6 +1,6 @@
 import sys
 import argparse
-from utils.menus import print_error
+from utils.menus import print_error, home
 from controllers.weight_controller import WeightController
 from controllers.calorie_controller import CalorieController
 
@@ -11,7 +11,7 @@ def main():
 
     # Home by default
     if (len(sys.argv) == 1): # In case using "$*" instead of "$@"
-        print(weight_controller.home())
+        home()
         return
 
     # Argument parser and subparsers
@@ -20,8 +20,8 @@ def main():
 
     # App parsers
     app_parser = subparsers.add_parser("home", help="Back to app home")
-    dir_parser = subparsers.add_parser("dir_weight", help="Shows filename where data is being accessed")
-    dir_parser.add_argument("-c","--change", type=str, nargs='?', help="Change filename where data is being accessed to <filename>")
+    dir_weight_parser = subparsers.add_parser("dir_weight", help="Shows filename where data is being accessed")
+    dir_weight_parser.add_argument("-c","--change", type=str, nargs='?', help="Change filename where weight data is being accessed to <filename>")
     # TODO: Maybe separate view dir and change dir commands? maybe even create dir - adjust to profiles?
     
     # Weight parsers
@@ -31,7 +31,8 @@ def main():
     graph_weight_parser.add_argument("limit", type=int, nargs='?', default=30, help="Graph all entries, and last <int> entries (default is all)")
 
     # Calorie parsers
-    calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for today's date")
+    create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for today's date")
+    create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
     # add_calories_parser = subparsers.add_parser("add_calories", help="Add calorie entry")
     # add_calories_parser.add_argument("calories", type=int, help="Calories to add")
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")
@@ -52,8 +53,8 @@ def main():
             print(weight_controller.add_weight(args.weight))
         case "graph_weight":
             print(weight_controller.graph_weight(args.limit))
-        case "open_entry_cal":
-            print()
+        case "create_entry_cal":
+            print(calorie_controller.create_entry(args.date))
         case _:
             parser.print_help()
             return

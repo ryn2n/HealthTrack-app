@@ -7,28 +7,24 @@ class WeightController:
     def __init__(self):
         self.service = WeightService()
     
-    def home(self):
-        response = (
-            "Welcome to the App!\n"
-            "\n"
-            "Add New Weight: ./app add_weight <weight>\n"
-            "Show Trends: ./app graph_weight [limit]  *note: optional limit, default is 30\n"
-            "Help Page: ./app -h"
-        )
-        return response
-    
     def change_dir(self, filename):
-        # Save return code from change
-        did_fail_change = self.service.change_filename(filename)
-        if not did_fail_change:
-            print("File successfully changed.")
-        else:
-            print(f"No file change. Is {filename} a valid filename?")
+        # Catch if filename cannot be created
+        try:    
+            self.service.change_filename(filename)
+        except NameError as e:
+            print_error(e)
+            return
+        
         return f"File being accessed set to: {self.service.get_filename()}"
     
     def add_weight(self, weight):
         current_date = datetime.datetime.today().replace(microsecond=0)
-        self.service.add_weight(weight, current_date)
+        
+        try:
+            self.service.add_weight(weight, current_date)
+        except NameError as e:
+            print_error(e)
+            return
         
         response = (
             f"Weight {weight} added successfully on {current_date}\n"

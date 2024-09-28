@@ -13,15 +13,18 @@ class WeightService:
     
     def change_filename(self, filename):
         if filename and os.path.exists(filename):
-            return self.model.save_filename(filename) # return 0 for success, 1 for fail
+            self.model.save_filename(filename)
+        elif filename == None:
+            return
         else:
-            return 1 # For fail, like cpp program exit
+            raise NameError(f"{filename} is an invalid filename. Please try again.")
     
     # Process and check weight, then save to model
     def add_weight(self, weight, date):
         if weight < 0:
             print_error("Value Error: Weight must be a positive float")
             return
+            
         self.model.save_weight(weight, date)
     
     def graph_weight(self, limit):

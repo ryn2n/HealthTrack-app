@@ -2,30 +2,24 @@ import csv
 import os
 import datetime
 from utils.menus import print_error
+from utils.filename import init_filename, save_filename_to_json
 
 # Manages all data handling to and from database
 class WeightModel:
-    def __init__(self, filename='weight_data_demo.csv'):
-        if os.path.exists("filename.txt"): # retrieve filename for data to load
-            with open("filename.txt", 'r') as file:
-                self.filename = file.read()
-        else:
-            self.filename = filename # else default to demo
+    def __init__(self):
+        self.filename = init_filename("weight")
         
     def save_filename(self, filename):
-        if os.path.exists("filename.txt"):
-            self.filename = filename
-            with open("filename.txt", 'w') as file:
-                file.write(filename)
-            return 0
-        else:
-            print_error("filename.txt does not exist. Please create this file.")
-            return 1
+        save_filename_to_json("weight", filename)
+        self.filename = filename
     
     def save_weight(self, weight, date):
-        with open(self.filename, 'a') as file:
-            writer = csv.writer(file)
-            writer.writerow([date, weight])
+        if os.path.exists(self.filename):
+            with open(self.filename, 'a') as file:
+                writer = csv.writer(file)
+                writer.writerow([date, weight])
+        else:
+            raise NameError(f"{self.filename} does not exist")
     
     def get_graphing_data(self):
         # Retrieve Data
