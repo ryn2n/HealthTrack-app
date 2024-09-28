@@ -24,6 +24,8 @@ health_tracker/
 │   ├── __init__.py
 │   ├── graph.py              # Functions to graph weight/calories
 │   └── file_handler.py       # File read/write utilities
+|
+├── tests/                    # Testing the application (empty for now)
 │
 └── requirements.txt          # List of Python dependencies
 ```
@@ -43,23 +45,18 @@ pip install numpy
 
 ## How to use and run (EXAMPLE DELETE LATER)
 
-Make sure that the /data/ folder is located in the same folder with all the scripts (this folder is not included).
+Ensure that the `weight_data.csv` file and the `filename.txt` file are present.
 
-To generate features in csv format in "features.csv", simply run the program using the command:
+To start up the app, simply run the program using the command:
 ```bash
-./run
-```
-
-The test program is used to verify that samples.csv has the correct output to features.csv, you need to first comment lines 46 and 55-62 and uncomment lines 48 and 65-71 in generate_rubine.py. Then, run the command:
-```bash
-./test
+./app
 ```
 
 ## Planned features
 
 ### Weight tracker:
 Be able to edit or delete?
-Trendline on graph?
+Instead limit to last N entries, limit x axis to last N days - will need to use timedelta to 
 
 ### Calorie tracker, or Nutrition tracker?:
 Add entires to dates
