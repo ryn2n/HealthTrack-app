@@ -35,7 +35,7 @@ def main():
     create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
     # TODO: Get entry by date to retrieve an entry
     # TODO: Update entry to update and edit a retrieved entry
-    # TODO: Get all entries for graphing
+    # TODO: Get all entries for graphing - so CRUD for entry?
     # TODO: Create food to add a food to database
     # TODO: Show all foods to list all foods to add in database - so CRUD for food?
     # add_calories_parser = subparsers.add_parser("add_calories", help="Add calorie entry")
