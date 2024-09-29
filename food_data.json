@@ -1,0 +1,20 @@
+{
+    "egg": {
+        "name": "egg",
+        "total_calories": 0,
+        "total_protein": 0,
+        "total_vol": 0
+    },
+    "eggplant": {
+        "name": "eggplant",
+        "total_calories": 0,
+        "total_protein": 0,
+        "total_vol": 0
+    },
+    "steak": {
+        "name": "steak",
+        "total_calories": 0,
+        "total_protein": 0,
+        "total_vol": 0
+    }
+}

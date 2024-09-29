@@ -35,7 +35,6 @@ def main():
     # Calorie parsers
     create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for a date")
     create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
-    # TODO: Get entry by date to retrieve an entry
     show_calorie_entry_parser = subparsers.add_parser("show_entry_cal", help="Show a calorie entry for a date", exit_on_error=False)
     show_calorie_entry_parser.add_argument("date", help="Date of entry to show") # TODO: catch this exception gracefully
     # TODO: Update entry to update and edit a retrieved entry
@@ -43,11 +42,10 @@ def main():
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")
 
     # Food parsers
-    # TODO: Create food to add a food to database
     create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database", exit_on_error=False)
     create_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
     # TODO: Show all foods to list all foods to add in database - so CRUD for food?
-    # TODO: Update food
+    # TODO: Update food / show food?
     # TODO: Delete food
     
     # Match command to controller

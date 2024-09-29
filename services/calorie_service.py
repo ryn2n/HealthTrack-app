@@ -31,6 +31,9 @@ class CalorieService:
     
     # Gets entry as CalorieEntry, Date should be in mm/dd/yy format
     def get_entry_by_date(self, date):
+        if date.lower() == "today":
+            date = datetime.date.today().strftime('%m/%d/%y')
+
         # Validate Date
         self.check_date_format(date)
         if not self.model.does_date_exist(date):
