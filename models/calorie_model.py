@@ -1,5 +1,6 @@
 import os
 import json
+from models.calorie_entry import CalorieEntry
 from utils.menus import print_error
 from utils.filename import init_filename
 
@@ -23,10 +24,23 @@ class CalorieModel:
                 data[entry.date] = entry.serialize()
                 json.dump(data, file, indent=4, sort_keys=True)
     
-    def validate_date(self, date):
+    # TODO: Hey isn't this completely reusable everywhere?
+    # Loads in all the data from json and returns dict
+    def load_data(self, filename):
         data = {}
-        if os.path.exists(self.filename):
-            with open(self.filename, 'r') as file:
+        if os.path.exists(filename):
+            with open(filename, 'r') as file:
                 data = json.load(file)
+        return data
+
+    def does_date_exist(self, date):
+        data = self.load_data(self.filename)
+        
         if date in data:
-            raise NameError(f"Entry for {date} already exists.")
+            return True
+        else:
+            return False
+
+    def get_entry(self, date):
+        data = self.load_data(self.filename)
+        return CalorieEntry.make_entry(data[date])

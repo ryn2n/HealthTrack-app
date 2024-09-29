@@ -14,7 +14,7 @@ class CalorieEntry:
         return entry_dict
 
     # Import entry - could use strings for date instead of datetime to keep without module?
-    def make_entry(self, dictionary):
+    def make_entry(dictionary):
         return CalorieEntry(dictionary["date"], dictionary["total_calories"], dictionary["food_list"])
 
     # TODO: Print Entry
@@ -38,12 +38,12 @@ class CalorieEntry:
             "Foods Eaten:\n"
         )
         
-        for food in foods:
+        for food in self.food_list:
             # food.print_inline()
-            entry.append(f"\tFood: {food}")
+            entry += (f"\tFood: {food}")
         
-        entry.append("--------------------------------\n")
-        print(entry)
+        entry += ("--------------------------------")
+        return entry
 
     # TODO: Add a food - call get total each time?
     # TODO: Get total calories (from food_list) - have this recalculate and replace existing total when called

@@ -14,3 +14,13 @@ class CalorieController:
             
         response = f"Entry created for: {date_created}"
         return response
+    
+    def show_entry(self, date):
+        printed_entry = ""
+        try:
+            printed_entry = self.service.get_printed_entry(date)
+        except NameError as e:
+            print_error(e)
+            return
+        
+        return printed_entry

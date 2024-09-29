@@ -13,13 +13,31 @@ class CalorieService:
         else:
             date_created = date
         
-        self.model.validate_date(date_created)
+        # Validate Date
+        self.check_date_format(date_created)
+        if self.model.does_date_exist(date_created):
+            raise NameError(f"Entry for \"{date}\" already exists.")
 
         new_entry = CalorieEntry(date_created)
         self.model.save_entry(new_entry)
         return date_created # Send date to cotroller for response message
     
-    # Date should be in mm/dd/yy format
+    # Check if date is in proper format MM/DD/YY
+    def check_date_format(self, date):
+        try:
+            datetime.datetime.strptime(date, '%m/%d/%y')
+        except ValueError:
+            raise NameError(f"\"{date}\" is not in the proper format \"MM/DD/YY\"")
+    
+    # Gets entry as CalorieEntry, Date should be in mm/dd/yy format
     def get_entry_by_date(self, date):
-        pass
-        selected_date = datetime.datetime
+        # Validate Date
+        self.check_date_format(date)
+        if not self.model.does_date_exist(date):
+            raise NameError(f"Entry for \"{date}\" not found.")
+        
+        return self.model.get_entry(date)
+    
+    def get_printed_entry(self, date):
+        entry = self.get_entry_by_date(date)
+        return entry.print()

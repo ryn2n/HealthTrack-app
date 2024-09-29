@@ -26,7 +26,7 @@ def main():
     
     # Weight parsers
     add_weight_parser = subparsers.add_parser("add_weight", help="Add a weight entry", exit_on_error=False)
-    add_weight_parser.add_argument("weight", type=float, help="Weight to add")
+    add_weight_parser.add_argument("weight", type=float, help="Weight to add") # TODO: catch this exception gracefully
     graph_weight_parser = subparsers.add_parser("graph_weight", help="Graph all weight entries", exit_on_error=False)
     graph_weight_parser.add_argument("limit", type=int, nargs='?', default=30, help="Graph all entries, and last <int> entries (default is all)")
 
@@ -34,14 +34,18 @@ def main():
     create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for a date")
     create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
     # TODO: Get entry by date to retrieve an entry
+    show_calorie_entry_parser = subparsers.add_parser("show_entry_cal", help="Show a calorie entry for a date", exit_on_error=False)
+    show_calorie_entry_parser.add_argument("date", help="Date of entry to show") # TODO: catch this exception gracefully
     # TODO: Update entry to update and edit a retrieved entry
     # TODO: Get all entries for graphing - so CRUD for entry?
-    # TODO: Create food to add a food to database
-    # TODO: Show all foods to list all foods to add in database - so CRUD for food?
-    # add_calories_parser = subparsers.add_parser("add_calories", help="Add calorie entry")
-    # add_calories_parser.add_argument("calories", type=int, help="Calories to add")
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")
 
+    # Food parsers
+    # TODO: Create food to add a food to database
+    # TODO: Show all foods to list all foods to add in database - so CRUD for food?
+    # TODO: Update food
+    # TODO: Delete food
+    
     # Match command to controller
     try:
         args = parser.parse_args()
@@ -60,6 +64,8 @@ def main():
             print(weight_controller.graph_weight(args.limit))
         case "create_entry_cal":
             print(calorie_controller.create_entry(args.date))
+        case "show_entry_cal":
+            print(calorie_controller.show_entry(args.date))
         case _:
             parser.print_help()
             return
