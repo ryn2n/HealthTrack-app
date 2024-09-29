@@ -1,4 +1,5 @@
 {
     "weight": "weight_data.csv",
-    "calorie": "calorie_data.json"
+    "calorie": "calorie_data.json",
+    "food": "food_data.json"
 }

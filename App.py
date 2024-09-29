@@ -3,11 +3,13 @@ import argparse
 from utils.menus import print_error, home
 from controllers.weight_controller import WeightController
 from controllers.calorie_controller import CalorieController
+from controllers.food_controller import FoodController
 
 def main():
     # Initializing controllers
     weight_controller = WeightController()
     calorie_controller = CalorieController()
+    food_controller = FoodController()
 
     # Home by default
     if (len(sys.argv) == 1): # In case using "$*" instead of "$@"
@@ -42,6 +44,8 @@ def main():
 
     # Food parsers
     # TODO: Create food to add a food to database
+    create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database", exit_on_error=False)
+    create_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
     # TODO: Show all foods to list all foods to add in database - so CRUD for food?
     # TODO: Update food
     # TODO: Delete food
@@ -66,6 +70,8 @@ def main():
             print(calorie_controller.create_entry(args.date))
         case "show_entry_cal":
             print(calorie_controller.show_entry(args.date))
+        case "create_food":
+            print(food_controller.create_food(args.name))
         case _:
             parser.print_help()
             return

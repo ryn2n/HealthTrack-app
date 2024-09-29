@@ -2,7 +2,7 @@ import csv
 import os
 import datetime
 from utils.menus import print_error
-from utils.filename import init_filename, save_filename_to_json
+from utils.file_handler import init_filename, save_filename_to_json
 
 # Manages all data handling to and from database
 class WeightModel:

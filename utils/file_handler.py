@@ -19,3 +19,10 @@ def save_filename_to_json(tracker_type, filename):
             json.dump(data, file, indent=4, sort_keys=True)
     else:
         raise NameError("filename.json not found. Please create this file.")
+
+def load_data(filename):
+    data = {}
+    if os.path.exists(filename):
+        with open(filename, 'r') as file:
+            data = json.load(file)
+    return data
