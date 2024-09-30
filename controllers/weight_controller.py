@@ -12,8 +12,7 @@ class WeightController:
         try:    
             self.service.change_filename(filename)
         except NameError as e:
-            print_error(e)
-            return
+            return print_error(e)
         
         return f"File being accessed set to: {self.service.get_filename()}"
     
@@ -23,8 +22,7 @@ class WeightController:
         try:
             self.service.add_weight(weight, current_date)
         except NameError as e:
-            print_error(e)
-            return
+            return print_error(e)
         
         response = (
             f"Weight {weight} added successfully on {current_date}\n"

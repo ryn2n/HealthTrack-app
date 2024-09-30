@@ -24,3 +24,7 @@ class FoodModel:
         with open(self.filename, 'w') as file:
             data[food.name] = food.serialize()
             json.dump(data, file, indent=4, sort_keys=True)
+
+    def get_food(self, name):
+        data = load_data(self.filename)
+        return Food.make_food(data[name])

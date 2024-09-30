@@ -9,18 +9,36 @@ class CalorieController:
         try:
             date_created = self.service.create_entry(date)
         except NameError as e:
-            print_error(e)
-            return
+            return print_error(e)
             
         response = f"Entry created for: {date_created}"
         return response
     
     def show_entry(self, date):
-        printed_entry = ""
         try:
             printed_entry = self.service.get_printed_entry(date)
         except NameError as e:
-            print_error(e)
-            return
+            return print_error(e)
         
         return printed_entry
+    
+    def edit_entry(self, date):
+        try:
+            entry = self.service.get_printed_entry(date) # TODO: Is it inefficient to get object to print, and get again when updating? Or should I pass object through?
+        except NameError as e:
+            return print_error(e)
+        print(entry)
+
+        total_calories = input("Enter total calories: ")
+        print("-- Note: Adding/Removing Foods will recalculate total calories --")
+        foods_to_add = input("Enter foods to add, separated by ', ': ")
+        foods_to_remove = input("Enter foods to remove, separated by ', ': ")
+
+        try:
+            self.service.update_entry(date, total_calories, foods_to_add, foods_to_remove)
+        except NameError as e:
+            return print_error(e)
+        
+        # TODO: print [flash updated succ] and show entry again
+
+        return f"Entry for {date} successfully edited."

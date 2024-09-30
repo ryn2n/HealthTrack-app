@@ -1,8 +1,9 @@
 # A food object for database
 class Food:
-    def __init__(self, name, total_calories=0, total_vol=0, total_protein=0):
+    def __init__(self, name, total_calories=0, units=1, total_vol=None, total_protein=None):
         self.name = name
         self.total_calories = total_calories
+        self.units = units
         self.total_vol = total_vol
         self.total_protein = total_protein
     
@@ -10,12 +11,13 @@ class Food:
         food_dict = {}
         food_dict["name"] = self.name
         food_dict["total_calories"] = self.total_calories
+        food_dict["units"] = self.units
         food_dict["total_vol"] = self.total_vol
         food_dict["total_protein"] = self.total_protein
         return food_dict
 
     def make_food(dictionary):
-        return Food(dictionary["name"], dictionary["total_calories"], dictionary["total_vol"], dictionary["total_protein"])
+        return Food(dictionary["name"], dictionary["total_calories"], dictionary["units"], dictionary["total_vol"], dictionary["total_protein"])
     
     # TODO: Print Food
     # TODO: Set total calories

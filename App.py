@@ -36,8 +36,9 @@ def main():
     create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for a date")
     create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
     show_calorie_entry_parser = subparsers.add_parser("show_entry_cal", help="Show a calorie entry for a date", exit_on_error=False)
-    show_calorie_entry_parser.add_argument("date", help="Date of entry to show") # TODO: catch this exception gracefully
-    # TODO: Update entry to update and edit a retrieved entry
+    show_calorie_entry_parser.add_argument("date", nargs='?', default="today", help="Date of entry to show, default today") # TODO: catch this exception gracefully
+    edit_calorie_entry_parser = subparsers.add_parser("edit_entry_cal", help="Edit a calorie entry for a date")
+    edit_calorie_entry_parser.add_argument("date", nargs='?', default="today", help="Date of entry to edit, default today") # TODO: catch this exception gracefully
     # TODO: Get all entries for graphing - so CRUD for entry?
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")
 
@@ -54,6 +55,9 @@ def main():
     except argparse.ArgumentError as e:
         print_error(e)
         return
+    except SystemExit:
+        print_error("Missing arguments.") # TODO: I don't think this is proper error handling
+        return
 
     match args.command:
         case "home":
@@ -67,7 +71,9 @@ def main():
         case "create_entry_cal":
             print(calorie_controller.create_entry(args.date))
         case "show_entry_cal":
-            print(calorie_controller.show_entry(args.date))
+            print(calorie_controller.show_entry(args.date)) # TODO: when these try catch goes off, None is printed, potential remove print statement
+        case "edit_entry_cal":
+            print(calorie_controller.edit_entry(args.date))
         case "create_food":
             print(food_controller.create_food(args.name))
         case _:

@@ -9,8 +9,7 @@ class FoodController:
         try:
             self.service.create_food(name)
         except NameError as e:
-            print_error(e)
-            return
+            return print_error(e)
         
         response = f"Food created with name: {name}"
         return response
