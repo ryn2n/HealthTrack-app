@@ -1,7 +1,36 @@
 {
     "09/30/24": {
         "date": "09/30/24",
-        "food_list": [],
-        "total_calories": "0"
+        "food_list": [
+            {
+                "name": "egg",
+                "total_calories": 10,
+                "total_protein": 0,
+                "total_vol": 0,
+                "units": 1
+            },
+            {
+                "name": "egg",
+                "total_calories": 10,
+                "total_protein": 0,
+                "total_vol": 0,
+                "units": 1
+            },
+            {
+                "name": "egg",
+                "total_calories": 10,
+                "total_protein": 0,
+                "total_vol": 0,
+                "units": 1
+            },
+            {
+                "name": "egg",
+                "total_calories": 10,
+                "total_protein": 0,
+                "total_vol": 0,
+                "units": 1
+            }
+        ],
+        "total_calories": 40
     }
 }

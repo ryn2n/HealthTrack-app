@@ -39,6 +39,8 @@ class CalorieController:
         except NameError as e:
             return print_error(e)
         
-        # TODO: print [flash updated succ] and show entry again
+        print()
+        print("[updated entry shown below]")
+        print(self.service.get_printed_entry(date))
 
         return f"Entry for {date} successfully edited."

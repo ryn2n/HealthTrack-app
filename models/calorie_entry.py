@@ -27,30 +27,18 @@ class CalorieEntry:
             food_list.append(Food.make_food(food))
         return CalorieEntry(dictionary["date"], dictionary["total_calories"], food_list)
 
-    # TODO: Print Entry
-        '''
-        --------------------------------
-        ENTRY FOR: 09/28/24
-            Total Calories = 2200.0 cal
-            Total Protein = 100.0 g
-        Foods Eaten:
-            Bread (130 cal, 10 g)
-            Chipotle (800 cal, 50 g)
-            Piada (1000 cal, 40 g)
-        ---------------------------------
-        '''
     def print(self):
         entry = (
             "--------------------------------\n"
             f"ENTRY FOR: {self.date}\n"
             f"\tTotal Calories = {self.total_calories} cal\n"
-            f"\tTotal Protein = self.get_total_protein()\n"
+            f"\tTotal Protein = WORK-IN-PROGRESS\n"
             "Foods Eaten:\n"
         )
         
         for food in self.food_list:
             # food.print_inline()
-            entry += (f"\tFood: {food}")
+            entry += (f"\tFood: {food.name} ({food.total_calories * food.units} cal)\n")
         
         entry += ("--------------------------------")
         return entry
@@ -74,11 +62,11 @@ class CalorieEntry:
                 print(f"\"{food.name}\" not found")
         self.calc_total_cals()
 
-    # TODO: Get total calories (from food_list) - have this recalculate and replace existing total when called
     def calc_total_cals(self):
         total = 0
         for food in self.food_list:
             total += food.total_calories * food.units
-        return self.total_calories
+        self.total_calories = total
+        return total
 
     # TODO: Get total protein (from food_list)

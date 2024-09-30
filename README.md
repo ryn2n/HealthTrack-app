@@ -1,6 +1,6 @@
 # HealthTrack-app
 
-## Project Structure
+## Project Structure (outdated)
 ```
 health_tracker/
 │
@@ -43,7 +43,7 @@ pip install matplotlib.pyplot
 pip install numpy
 ```
 
-## How to use and run (EXAMPLE DELETE LATER)
+## How to use and run (EXAMPLE, INCOMPLETE)
 
 Ensure that the `weight_data.csv` file and the `filename.txt` file are present.
 
@@ -59,10 +59,16 @@ Be able to edit or delete?
 Instead limit to last N entries, limit x axis to last N days - will need to use timedelta to 
 
 ### Calorie tracker, or Nutrition tracker?:
-Add entires to dates
-Edit entries to add foods to them, to increase
++ Add entires to dates
++ Edit entries to add foods to them, to increase
 Graph total calories in same way as weight, with all time and number entries
 Trendline on graph
+
+### Food database
++ Create a food
+Create a food in one line?
+Show list of foods
+Update/edit foods
 
 Calorie Entry has
 - Date
