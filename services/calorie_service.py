@@ -83,7 +83,7 @@ class CalorieService:
                 foods_to_remove.remove('')
                 continue
             if (not self.food_model.does_food_exist(food)):
-                raise NameError(f"\"{food}\" is not in database. Add with ./app create_food {food}")
+                raise NameError(f"\"{food}\" is not in database. Add with:\n./app create_food {food}")
             removed_foods.append(self.food_model.get_food(food))
         
         # Update pulled entry

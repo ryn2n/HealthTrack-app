@@ -19,11 +19,11 @@ class FoodService:
     # Prints all foods in list
     def list_foods(self):
         food_dict = self.model.get_all_foods()
-        
+
         food_list = (
             "Format of foods:\n"
-            "<FOOD> (CFP) [N units]\n"
-            "\n"
+            "<name> ..... (CFP) [N units]\n"
+            "=========================\n"
             "--- FOODS IN DATABASE ---\n"
         )
 
@@ -32,3 +32,10 @@ class FoodService:
         food_list += "=========================\n\n"
         
         return food_list
+    
+    def show_food(self, name):
+        # Validate food name exists
+        if self.model.does_food_exist(name):
+            return self.model.get_food(name).print()
+        else:
+            raise NameError(f"\"{name}\" is not in database. Add with:\n./app create_food {name}")

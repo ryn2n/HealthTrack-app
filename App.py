@@ -48,7 +48,9 @@ def main():
     create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database", exit_on_error=False)
     create_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
     list_foods_parser = subparsers.add_parser("list_food", help="Show all Foods in the database", exit_on_error=False)
-    # TODO: Update food / show food?
+    show_food_parser = subparsers.add_parser("show_food", help="Show a Food by name", exit_on_error=False)
+    show_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
+    # TODO: Update food
     # TODO: Delete food - so CRUD for food?
     
     # Match command to controller
@@ -80,6 +82,8 @@ def main():
             print(food_controller.create_food(args.name))
         case "list_food":
             print(food_controller.list_foods())
+        case "show_food":
+            print(food_controller.show_food(args.name))
         case _:
             parser.print_help()
             return

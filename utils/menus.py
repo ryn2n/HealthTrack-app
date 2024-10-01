@@ -17,6 +17,8 @@ def home():
         "Show Entry for a Date: ./app show_entry_cal [date]\n"
         "Edit Entry for a Date: ./app edit_entry_cal [date]\n"
         "Create New Food: ./app create_food <name>\n"
+        "List all Foods: ./app list_food\n"
+        "Show a Food: ./app show_food <name>\n"
         "Help Page: ./app -h"
     )
     print(menu)

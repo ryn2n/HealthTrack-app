@@ -21,10 +21,18 @@ class FoodController:
             return print_error(e)
 
         confirmation = (
-            "Show specific Food:\n"
-            "./app show_food <name>\n\n"
+            "Show specific Food: "
+            "./app show_food <name>\n"
             "Go back to Home: ./app"
         )
         response += confirmation
 
         return response
+    
+    def show_food(self, name):
+        try:
+            printed_food = self.service.show_food(name)
+        except NameError as e:
+            return print_error(e)
+        
+        return printed_food

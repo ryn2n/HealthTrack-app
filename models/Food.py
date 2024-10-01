@@ -19,7 +19,21 @@ class Food:
     def make_food(dictionary):
         return Food(dictionary["name"], dictionary["total_calories"], dictionary["units"], dictionary["total_vol"], dictionary["total_protein"])
     
-    # Print Food object
+    # Print Food Object with all stats
+    def print(self):
+        food = (
+            "=======================\n"
+            "--- Nutrition Facts ---\n"
+            f"{self.name}\n"
+            f"Servings = {self.units}\n"
+            f"Calories = {self.total_calories} cal\n"
+            f"Protein = {self.total_protein} g\n"
+            f"Total Volume = {self.total_vol} g\n"
+            "======================="
+        )
+        return food
+    
+    # Print Food object in one line
     # Food (CFP) [n units]
     # Egg ..... (123 cal, 42g protein) [1 unit]
     def print_food_inline(self):
