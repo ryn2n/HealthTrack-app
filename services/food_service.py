@@ -40,12 +40,12 @@ class FoodService:
         else:
             raise NameError(f"\"{name}\" is not in database. Add with:\n./app create_food {name}")
     
-    # TODO: ?
+    # TODO?
     def get_food(self, name):
         # Validate exists, then return Food object
         pass
     
-    # TODO: Update food with string inputs from user
+    # Update food with string inputs from user
     def update_food(self, name, new_name, cal, units, vol, protein):
         # name is already validated
         food = self.model.get_food(name)
@@ -71,19 +71,17 @@ class FoodService:
         except ValueError as e:
             raise NameError(e)
 
-        # TODO: if name != new_name, self.delete_food(name)
         # Delete old food if changing name
         if name != new_name:
             self.delete_food(name)
         
-        # TODO: Update the pulled entry - entry.name = new_name
+        # Update the pulled entry
         food.name = new_name
         food.total_calories = cal
         food.units = units
         food.total_vol = vol
         food.total_protein = protein
 
-        # TODO: Save updated entry to model with save function
         self.model.save_food(food)
 
         return new_name # for controller

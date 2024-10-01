@@ -50,10 +50,8 @@ def main():
     list_foods_parser = subparsers.add_parser("list_food", help="Show all Foods in the database", exit_on_error=False)
     show_food_parser = subparsers.add_parser("show_food", help="Show a Food by name", exit_on_error=False)
     show_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    # TODO: Update food
     edit_food_parser = subparsers.add_parser("edit_food", help="Edit a Food by name", exit_on_error=False)
     edit_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    # TODO: Delete food
     delete_food_parser = subparsers.add_parser("delete_food", help="Delete a Food by name", exit_on_error=False)
     delete_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
     
