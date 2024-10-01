@@ -47,8 +47,18 @@ class FoodController:
         print(food)
 
         # TODO: Take input [NAME?, total_calories, units, total_vol, total_protein]
+        new_name = input("Enter name: ")
+        total_calories = input("Enter total calories: ")
+        units = input("Enter number of servings: ")
+        total_vol = input("Enter total volume: ")
+        total_protein = input("Enter total protein: ")
 
         # TODO: Send inputs to service to update - in try block
+        try:
+            self.service.update_food(new_name, total_calories. units, total_vol, total_protein)
+        except NameError as e:
+            return print_error(e)
+
         # TODO: print [updated food shown below] and Food after editing
         return f"Food \"{name}\" successfully edited."
     

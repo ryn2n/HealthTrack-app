@@ -48,6 +48,9 @@ class FoodService:
     def get_printed_food(self, name):
         pass
     
+    # TODO:
+    def update_food(self, name, cal, units, vol, protein)
+    
     def delete_food(self, name):
         # Validate food exists
         if self.model.does_food_exist(name):
