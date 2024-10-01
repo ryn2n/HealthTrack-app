@@ -33,23 +33,28 @@ class FoodService:
         
         return food_list
     
-    def show_food(self, name):
+    def get_printed_food(self, name):
         # Validate food name exists
         if self.model.does_food_exist(name):
             return self.model.get_food(name).print()
         else:
             raise NameError(f"\"{name}\" is not in database. Add with:\n./app create_food {name}")
     
-    # TODO:
+    # TODO: ?
     def get_food(self, name):
+        # Validate exists, then return Food object
         pass
     
-    # TODO:
-    def get_printed_food(self, name):
-        pass
-    
-    # TODO:
-    def update_food(self, name, cal, units, vol, protein)
+    # TODO: Update food with string inputs from user
+    def update_food(self, name, new_name, cal, units, vol, protein):
+        # name is already validated
+        # TODO: Get entry from model
+        # TODO: Validate inputs
+            # If any fields are blank, set to default - new_name = entry.name
+            # validate cal, units, vol, protein are floats/ints - convert them
+        # TODO: if name != new_name, self.delete_food(name)
+        # TODO: Update the pulled entry - entry.name = new_name
+        # TODO: Save updated entry to model with save function
     
     def delete_food(self, name):
         # Validate food exists

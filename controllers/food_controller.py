@@ -31,7 +31,7 @@ class FoodController:
     
     def show_food(self, name):
         try:
-            printed_food = self.service.show_food(name)
+            printed_food = self.service.get_printed_food(name)
         except NameError as e:
             return print_error(e)
         
@@ -55,11 +55,15 @@ class FoodController:
 
         # TODO: Send inputs to service to update - in try block
         try:
-            self.service.update_food(new_name, total_calories. units, total_vol, total_protein)
+            changed_name = self.service.update_food(name, new_name, total_calories. units, total_vol, total_protein)
         except NameError as e:
             return print_error(e)
 
         # TODO: print [updated food shown below] and Food after editing
+        print()
+        print("[updated entry shown below]")
+        print(self.service.get_printed_food(changed_name))
+
         return f"Food \"{name}\" successfully edited."
     
     def delete_food(self, name):
