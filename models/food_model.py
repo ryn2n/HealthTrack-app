@@ -31,4 +31,9 @@ class FoodModel:
     
     def get_all_foods(self):
         # TODO: Create dict of all foods (as dict {name:Food}) using get_food()
-        pass
+        food_dict = load_data(self.filename)
+        
+        for name in food_dict:
+            food_dict[name] = Food.make_food(food_dict[name])
+        
+        return food_dict

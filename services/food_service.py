@@ -34,13 +34,13 @@ class FoodService:
         # TODO: for Food in dict, print_inline food, collect and form into a response
         food_list = (
             "Format of foods:\n"
-            "FOOD (CFP) [N units]\n"
+            "<FOOD> (CFP) [N units]\n"
             "\n"
             "--- FOODS IN DATABASE ---\n"
         )
 
         for food_name in food_dict:
-            food_list.append(food_dict[food_name].print_food_inline() + "\n")
-        food_list.append("=========================\n\n")
+            food_list += food_dict[food_name].print_food_inline() + "\n"
+        food_list += "=========================\n\n"
         
         return food_list

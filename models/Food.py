@@ -23,7 +23,7 @@ class Food:
     # Food (CFP) [n units]
     # Egg ..... (123 cal, 42g protein) [1 unit]
     def print_food_inline(self):
-        food = f"{self.name} ({self.total_calories} cal) [{self.units}"
+        food = f"{self.name} ..... ({self.total_calories} cal) [{self.units}"
         if self.units > 1:
             food += " units]"
         else:

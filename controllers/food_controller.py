@@ -28,6 +28,6 @@ class FoodController:
             "./app show_food <name>\n\n"
             "Go back to Home: ./app"
         )
-        response.append(confirmation)
+        response += confirmation
 
         return response
