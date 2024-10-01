@@ -15,9 +15,6 @@ class FoodController:
         return response
     
     def list_foods(self):
-        # Nothing to validate?
-        # TODO: Place request to service in try block
-        # return a message? "List completed"? ""
         try:
             response = self.service.list_foods()
         except NameError as e:

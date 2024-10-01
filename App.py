@@ -44,13 +44,12 @@ def main():
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")
 
     # Food parsers
+    # TODO: adjust create to optionally add food in one line CLI - according to ipad
     create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database", exit_on_error=False)
     create_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    # TODO: Show all foods to list all foods to add in database - so CRUD for food?
     list_foods_parser = subparsers.add_parser("list_food", help="Show all Foods in the database", exit_on_error=False)
-    
     # TODO: Update food / show food?
-    # TODO: Delete food
+    # TODO: Delete food - so CRUD for food?
     
     # Match command to controller
     try:
