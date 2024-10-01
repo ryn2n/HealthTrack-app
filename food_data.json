@@ -2,22 +2,29 @@
     "egg": {
         "name": "egg",
         "total_calories": 10,
-        "units": 1,
         "total_protein": 0,
-        "total_vol": 0
+        "total_vol": 0,
+        "units": 1
     },
     "eggplant": {
         "name": "eggplant",
         "total_calories": 0,
-        "units": 1,
         "total_protein": 0,
-        "total_vol": 0
+        "total_vol": 0,
+        "units": 1
+    },
+    "rice": {
+        "name": "rice",
+        "total_calories": 0,
+        "total_protein": null,
+        "total_vol": null,
+        "units": 1
     },
     "steak": {
         "name": "steak",
         "total_calories": 0,
-        "units": 1,
         "total_protein": 0,
-        "total_vol": 0
+        "total_vol": 0,
+        "units": 1
     }
 }

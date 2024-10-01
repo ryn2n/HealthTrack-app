@@ -40,7 +40,7 @@ class CalorieService:
         # Validate Date
         self.check_date_format(date)
         if not self.model.does_date_exist(date):
-            raise NameError(f"Entry for \"{date}\" not found.")
+            raise NameError(f"Entry for \"{date}\" not found. Create with:\n./app create_entry_cal {date}")
         
         return self.model.get_entry(date)
     
@@ -73,7 +73,7 @@ class CalorieService:
                 foods_to_add.remove('')
                 continue
             if (not self.food_model.does_food_exist(food)):
-                raise NameError(f"\"{food}\" is not in database. Add with ./app create_food {food}")
+                raise NameError(f"\"{food}\" is not in database. Add with:\n./app create_food {food}")
             added_foods.append(self.food_model.get_food(food))
         
         foods_to_remove = [food.strip() for food in remove_foods.split(',')]

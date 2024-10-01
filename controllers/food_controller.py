@@ -13,3 +13,21 @@ class FoodController:
         
         response = f"Food created with name: {name}"
         return response
+    
+    def list_foods(self):
+        # Nothing to validate?
+        # TODO: Place request to service in try block
+        # return a message? "List completed"? ""
+        try:
+            response = self.service.list_foods()
+        except NameError as e:
+            return print_error(e)
+
+        confirmation = (
+            "Show specific Food:\n"
+            "./app show_food <name>\n\n"
+            "Go back to Home: ./app"
+        )
+        response.append(confirmation)
+
+        return response

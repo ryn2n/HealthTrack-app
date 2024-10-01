@@ -39,6 +39,7 @@ def main():
     show_calorie_entry_parser.add_argument("date", nargs='?', default="today", help="Date of entry to show, default today") # TODO: catch this exception gracefully
     edit_calorie_entry_parser = subparsers.add_parser("edit_entry_cal", help="Edit a calorie entry for a date")
     edit_calorie_entry_parser.add_argument("date", nargs='?', default="today", help="Date of entry to edit, default today") # TODO: catch this exception gracefully
+    # TODO: add units to food when editing? or when adding?
     # TODO: Get all entries for graphing - so CRUD for entry?
     # graph_calories_parser = subparsers.add_parser("graph_calories", help="Graph all calorie entries")
 
@@ -46,6 +47,8 @@ def main():
     create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database", exit_on_error=False)
     create_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
     # TODO: Show all foods to list all foods to add in database - so CRUD for food?
+    list_foods_parser = subparsers.add_parser("list_food", help="Show all Foods in the database", exit_on_error=False)
+    
     # TODO: Update food / show food?
     # TODO: Delete food
     
@@ -76,6 +79,8 @@ def main():
             print(calorie_controller.edit_entry(args.date))
         case "create_food":
             print(food_controller.create_food(args.name))
+        case "list_food":
+            print(food_controller.list_foods())
         case _:
             parser.print_help()
             return

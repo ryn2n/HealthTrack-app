@@ -24,13 +24,13 @@
                 "units": 1
             },
             {
-                "name": "egg",
-                "total_calories": 10,
+                "name": "eggplant",
+                "total_calories": 0,
                 "total_protein": 0,
                 "total_vol": 0,
                 "units": 1
             }
         ],
-        "total_calories": 40
+        "total_calories": 30
     }
 }
