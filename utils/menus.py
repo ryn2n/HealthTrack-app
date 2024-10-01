@@ -19,6 +19,8 @@ def home():
         "Create New Food: ./app create_food <name>\n"
         "List all Foods: ./app list_food\n"
         "Show a Food: ./app show_food <name>\n"
+        "Edit a Food: ./app edit_food <name>\n"
+        "Delete a Food: ./app delete_food <name>\n"
         "Help Page: ./app -h"
     )
     print(menu)

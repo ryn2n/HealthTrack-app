@@ -43,8 +43,3 @@ class Food:
         else:
             food += " unit]"
         return food
-
-    # TODO: Set total calories
-    # TODO: Set volume
-    # TODO: Set protein
-    # TODO: Set units

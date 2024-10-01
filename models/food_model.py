@@ -37,3 +37,9 @@ class FoodModel:
             food_dict[name] = Food.make_food(food_dict[name])
         
         return food_dict
+    
+    def delete_food(self, name):
+        data = load_data(self.filename)
+        del data[name]
+        with open(self.filename, 'w') as file:
+            json.dump(data, file, indent=4, sort_keys=True)

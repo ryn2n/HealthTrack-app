@@ -39,3 +39,18 @@ class FoodService:
             return self.model.get_food(name).print()
         else:
             raise NameError(f"\"{name}\" is not in database. Add with:\n./app create_food {name}")
+    
+    # TODO:
+    def get_food(self, name):
+        pass
+    
+    # TODO:
+    def get_printed_food(self, name):
+        pass
+    
+    def delete_food(self, name):
+        # Validate food exists
+        if self.model.does_food_exist(name):
+            self.model.delete_food(name)
+        else:
+            raise NameError(f"\"{name}\" is not in database. Add with:\n./app create_food {name}")
