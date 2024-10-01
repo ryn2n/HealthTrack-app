@@ -55,7 +55,7 @@ class FoodController:
 
         # TODO: Send inputs to service to update - in try block
         try:
-            changed_name = self.service.update_food(name, new_name, total_calories. units, total_vol, total_protein)
+            changed_name = self.service.update_food(name, new_name, total_calories, units, total_vol, total_protein)
         except NameError as e:
             return print_error(e)
 

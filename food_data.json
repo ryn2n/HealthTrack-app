@@ -1,10 +1,10 @@
 {
     "egg": {
         "name": "egg",
-        "total_calories": 10,
-        "total_protein": 0,
+        "total_calories": "78",
+        "total_protein": "6",
         "total_vol": 0,
-        "units": 1
+        "units": "1"
     },
     "eggplant": {
         "name": "eggplant",

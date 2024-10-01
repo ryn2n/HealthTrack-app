@@ -48,13 +48,45 @@ class FoodService:
     # TODO: Update food with string inputs from user
     def update_food(self, name, new_name, cal, units, vol, protein):
         # name is already validated
-        # TODO: Get entry from model
-        # TODO: Validate inputs
-            # If any fields are blank, set to default - new_name = entry.name
-            # validate cal, units, vol, protein are floats/ints - convert them
+        food = self.model.get_food(name)
+
+        # Validate inputs
+        # If any fields are blank, default to original value
+        if new_name == "":
+            new_name = food.name
+        if cal == "":
+            cal = food.total_calories
+        if units == "":
+            units = food.units
+        if vol == "":
+            vol = food.total_vol
+        if protein == "":
+            protein = food.total_protein
+        # validate cal, units, vol, protein are floats/ints - convert them
+        try:
+            float(cal)
+            int(units)
+            float(vol)
+            float(protein)
+        except ValueError as e:
+            raise NameError(e)
+
         # TODO: if name != new_name, self.delete_food(name)
+        # Delete old food if changing name
+        if name != new_name:
+            self.delete_food(name)
+        
         # TODO: Update the pulled entry - entry.name = new_name
+        food.name = new_name
+        food.total_calories = cal
+        food.units = units
+        food.total_vol = vol
+        food.total_protein = protein
+
         # TODO: Save updated entry to model with save function
+        self.model.save_food(food)
+
+        return new_name # for controller
     
     def delete_food(self, name):
         # Validate food exists
