@@ -67,13 +67,14 @@ Trendline on graph
 ### Food database
 + Create a food
 Create a food in one line?
-Show list of foods
-Update/edit foods
-
-Calorie Entry has
-- Date
-- Total calories
-- List of foods with calorie count for breakdown
-- Protein?
++ Show list of foods
++ Update/edit foods
 
 (useful md tool: https://markdownlivepreview.com/)
+
+### KNOWN BUGS
+
+10/02/24
+Creating a new food and then editing it results in a ValueError
+This is due to the default of Nonetype and interaction in food_service.py:69
+Correct by adding Nonetype check and exclude

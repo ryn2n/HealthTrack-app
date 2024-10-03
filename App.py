@@ -17,7 +17,7 @@ def main():
         return
 
     # Argument parser and subparsers
-    parser = argparse.ArgumentParser(description="HealthTrack App: Your personal health center!", exit_on_error=False)
+    parser = argparse.ArgumentParser(description="HealthTrack App: Your personal health center!")
     subparsers = parser.add_subparsers(dest="command") # go to .command
 
     # App parsers
@@ -27,15 +27,15 @@ def main():
     # TODO: Maybe separate view dir and change dir commands? maybe even create dir - adjust to profiles?
     
     # Weight parsers
-    add_weight_parser = subparsers.add_parser("add_weight", help="Add a weight entry", exit_on_error=False)
+    add_weight_parser = subparsers.add_parser("add_weight", help="Add a weight entry")
     add_weight_parser.add_argument("weight", type=float, help="Weight to add") # TODO: catch this exception gracefully
-    graph_weight_parser = subparsers.add_parser("graph_weight", help="Graph all weight entries", exit_on_error=False)
+    graph_weight_parser = subparsers.add_parser("graph_weight", help="Graph all weight entries")
     graph_weight_parser.add_argument("limit", type=int, nargs='?', default=30, help="Graph all entries, and last <int> entries (default is all)")
 
     # Calorie parsers
     create_calorie_entry_parser = subparsers.add_parser("create_entry_cal", help="Create a new calorie entry for a date")
     create_calorie_entry_parser.add_argument("date", nargs='?', default="TODAY", help="Set date for creating calorie entry (default is today) <MM/DD/YY>")
-    show_calorie_entry_parser = subparsers.add_parser("show_entry_cal", help="Show a calorie entry for a date", exit_on_error=False)
+    show_calorie_entry_parser = subparsers.add_parser("show_entry_cal", help="Show a calorie entry for a date")
     show_calorie_entry_parser.add_argument("date", nargs='?', default="today", help="Date of entry to show, default today") # TODO: catch this exception gracefully
     edit_calorie_entry_parser = subparsers.add_parser("edit_entry_cal", help="Edit a calorie entry for a date")
     edit_calorie_entry_parser.add_argument("date", nargs='?', default="today", help="Date of entry to edit, default today") # TODO: catch this exception gracefully
@@ -45,26 +45,18 @@ def main():
 
     # Food parsers
     # TODO: adjust create to optionally add food in one line CLI - according to ipad
-    create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database", exit_on_error=False)
+    create_food_parser = subparsers.add_parser("create_food", help="Create a new Food in the database")
     create_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    list_foods_parser = subparsers.add_parser("list_food", help="Show all Foods in the database", exit_on_error=False)
-    show_food_parser = subparsers.add_parser("show_food", help="Show a Food by name", exit_on_error=False)
+    list_foods_parser = subparsers.add_parser("list_food", help="Show all Foods in the database")
+    show_food_parser = subparsers.add_parser("show_food", help="Show a Food by name")
     show_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    edit_food_parser = subparsers.add_parser("edit_food", help="Edit a Food by name", exit_on_error=False)
+    edit_food_parser = subparsers.add_parser("edit_food", help="Edit a Food by name")
     edit_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    delete_food_parser = subparsers.add_parser("delete_food", help="Delete a Food by name", exit_on_error=False)
+    delete_food_parser = subparsers.add_parser("delete_food", help="Delete a Food by name")
     delete_food_parser.add_argument("name", help="Name of food") # TODO: catch this exception gracefully
-    
-    # Match command to controller
-    try:
-        args = parser.parse_args()
-    except argparse.ArgumentError as e:
-        print_error(e)
-        return
-    except SystemExit:
-        print_error("Missing arguments.") # TODO: I don't think this is proper error handling
-        return
 
+    # Match command to controller
+    args = parser.parse_args()
     match args.command:
         case "home":
             print(weight_controller.home())

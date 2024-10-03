@@ -52,22 +52,22 @@ class FoodService:
 
         # Validate inputs
         # If any fields are blank, default to original value
-        if new_name == "":
+        if new_name in [None, ""]:
             new_name = food.name
-        if cal == "":
+        if cal in [None, ""]:
             cal = food.total_calories
-        if units == "":
+        if units in [None, ""]:
             units = food.units
-        if vol == "":
+        if vol in [None, ""]:
             vol = food.total_vol
-        if protein == "":
+        if protein in [None, ""]:
             protein = food.total_protein
         # validate cal, units, vol, protein are floats/ints - convert them
         try:
-            float(cal)
-            int(units)
-            float(vol)
-            float(protein)
+            cal = float(cal)
+            units = int(units)
+            vol = float(vol) # TODO: Check for None, not working
+            protein = float(protein)
         except ValueError as e:
             raise NameError(e)
 

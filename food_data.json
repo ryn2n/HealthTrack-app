@@ -1,10 +1,31 @@
 {
+    "chili": {
+        "name": "chili",
+        "total_calories": 650.0,
+        "total_protein": 46.0,
+        "total_vol": 0.0,
+        "units": 1
+    },
+    "chipotle": {
+        "name": "chipotle",
+        "total_calories": 0,
+        "total_protein": null,
+        "total_vol": null,
+        "units": 1
+    },
+    "cottage cheese": {
+        "name": "cottage cheese",
+        "total_calories": 90,
+        "total_protein": 13,
+        "total_vol": 0,
+        "units": 1
+    },
     "egg": {
         "name": "egg",
-        "total_calories": "78",
-        "total_protein": "6",
+        "total_calories": 78,
+        "total_protein": 6,
         "total_vol": 0,
-        "units": "1"
+        "units": 1
     },
     "eggplant": {
         "name": "eggplant",

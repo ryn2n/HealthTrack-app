@@ -32,5 +32,32 @@
             }
         ],
         "total_calories": 30
+    },
+    "10/01/24": {
+        "date": "10/01/24",
+        "food_list": [
+            {
+                "name": "cottage cheese",
+                "total_calories": 90,
+                "total_protein": 13,
+                "total_vol": 0,
+                "units": 1
+            },
+            {
+                "name": "cottage cheese",
+                "total_calories": 90,
+                "total_protein": 13,
+                "total_vol": 0,
+                "units": 1
+            },
+            {
+                "name": "chili",
+                "total_calories": 650.0,
+                "total_protein": 46.0,
+                "total_vol": 0.0,
+                "units": 1
+            }
+        ],
+        "total_calories": 830.0
     }
 }
